@@ -12,4 +12,5 @@ loop:
   jmp loop
 
 return:
+  mov rax, rdi  
   ret 
