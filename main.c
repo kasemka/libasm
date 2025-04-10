@@ -9,7 +9,7 @@
 
 extern size_t ft_strlen(const char *str);
 extern size_t ft_strcpy(char *des, const char *src);
-extern size_t ft_strcmp(const char *s1, const char *s2);
+extern int ft_strcmp(const char *s1, const char *s2);
 extern size_t ft_write(int fd, const void *buf, size_t nbyte);
 extern size_t ft_read(int fd, const void *buf, size_t nbyte);
 extern char * ft_strdup( const char *str1 );
@@ -54,17 +54,39 @@ int main() {
     free(des);
     char *des2 = malloc(strlen(msg2));
     ft_strcpy(des2, msg2);
-    printf("\nft_strcpy des = %s, len=%li\n", des2, strlen(des2));
+    printf("\nft_strcpy des = %s, len=%li\n", des2, ft_strlen(des2));
     free(des2);
 /* 
  * ft_strcmp
  */
     printf("\ntest5 ft_strcmp:\n");
-    printf("ft_strcmp two empty strs, result: %ld\n", ft_strcmp("", ""));
-    printf("ft_strcmp sec empty strs, result: %ld\n", ft_strcmp("asd", ""));
-    printf("ft_strcmp first empty strs, result: %ld\n", ft_strcmp("", "aa"));
-    printf("ft_strcmp not empty strs (d, aaa), result: %ld\n", ft_strcmp("d", "aaa"));
-    printf("ft_strcmp not empty strs (Aa, a), result: %ld\n", ft_strcmp("Aa", "a"));
+    char *empty = "";
+    char *notempty = "asd";
+    char *notempty2 = "A";
+    int original = strcmp(empty, empty);
+    int my = ft_strcmp(empty, empty);
+    
+    printf("ft_strcmp two empty strs, strcmp result: %d, ft_strcmp res:%d\n",  original, my);
+   
+    original = strcmp(empty, notempty);
+    my = ft_strcmp(empty, notempty);
+    printf("ft_strcmp 1st empty strs, strcmp result: %d, ft_strcmp res:%d\n",  original, my);
+
+    original = strcmp(notempty, empty);
+    my = ft_strcmp(notempty, empty);
+    printf("ft_strcmp 2st empty strs, strcmp result: %d, ft_strcmp res:%d\n",  original, my);
+
+
+    original = strcmp(notempty, notempty2);
+    my = ft_strcmp(notempty, notempty2);
+    printf("ft_strcmp both not empty strs, strcmp result: %d, ft_strcmp res:%d\n",  original, my);
+
+
+    original = strcmp(notempty2, notempty2);
+    my = ft_strcmp(notempty2, notempty2);
+    printf("ft_strcmp both not empty and equal strs, strcmp result: %d, ft_strcmp res:%d\n",  original, my);
+
+
 
  /* 
  * ft_write 

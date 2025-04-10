@@ -7,7 +7,6 @@ SRC = ft_strlen.s \
 	    ft_read.s \
 	    ft_strdup.s
 
-C_FILES = main.c
 ASM_OBJS = $(SRC:.s=.o)
 C_OBJS = $(C_FILES:.c=.o)
 
@@ -25,7 +24,7 @@ $(LIB_NAME): $(ASM_OBJS)
 	$(ASM) $(ASM_FLAGS) $< -o $@
 
 test :
-	$(CC) $(CFLAGS) main.c $(NAME_LIB)  -L. -lasm
+	$(CC) $(CFLAGS) main.c $(NAME_LIB)-L. -lasm
 
 clean:
 	rm -f $(ASM_OBJS) $(C_OBJS)
