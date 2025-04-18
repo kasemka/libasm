@@ -1,7 +1,6 @@
 # libasm
 
 A minimal **x86_64 assembly** library re-implementing standard C library functions using **NASM**.  
-Great for learning low-level programming and understanding how common C functions work under the hood.
 
 ---
 
@@ -18,18 +17,22 @@ Great for learning low-level programming and understanding how common C function
 
 ---
 
-## Requirements
+## Build and test
+
+Requirements:
 
 - [`nasm`](https://www.nasm.us/) (Netwide Assembler)
 - `gcc` for testing (optional)
 
----
 
-## Testing
-
-You can write your own `main.c` or use the provided sample test cases to verify functionality.
-
-Compile and link your C test with the library:
+Build a library:
 
 ```bash
-gcc -Wall -Wextra -Werror main.c -L. -lasm
+make
+```
+
+Test the libasm functions with the provided main.c or you can write you own test:
+
+```bash
+make test
+./a.out
