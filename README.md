@@ -31,7 +31,7 @@ Build a library:
 make
 ```
 
-Test the libasm functions with the provided main.c or you can write you own test:
+Test the libasm functions with the provided main.c (or you can write your own test):
 
 ```bash
 make test
